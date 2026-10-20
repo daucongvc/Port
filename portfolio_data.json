@@ -1,0 +1,302 @@
+{
+  "texts": {
+    "vi": {
+      "nav_eco": "Hệ sinh thái",
+      "nav_wf": "Quy trình",
+      "nav_out": "Kết quả",
+      "nav_about": "Về tôi",
+      "hero_badge": "Product Owner & AI Builder",
+      "hero_title": "Vibe Coding Portfolio of Nguyen Thanh Cong",
+      "hero_subtitle": "Product Owner | Business Analyst | AI-Driven Builder",
+      "hero_desc_1": "Từ phân tích bài toán nghiệp vụ (PRD, BRD, User Story) đến thiết kế luồng hệ thống (BPMN, ERD) và triển khai thực tế bằng AI Agent (Vibe-Coding).",
+      "hero_desc_2": "Hiện thực hóa các giải pháp E-commerce & Hệ thống ERP quản trị chuỗi cung ứng Vinapet với hiệu suất tối ưu và chi phí tối thiểu.",
+      "hero_cta_project": "Xem dự án",
+      "hero_cta_about": "Về tôi (About Me)",
+      "eco_title": "THE VINAPET & ERP ECOSYSTEM",
+      "eco_subtitle": "Hệ sinh thái E-commerce Đa kênh & ERP Quản trị Doanh nghiệp",
+      "eco_actor_customers": "Khách B2C & Đại lý Dropship",
+      "eco_actor_operations": "Vận hành Kho & Kế toán",
+      "eco_actor_admin": "Product Owner / Ban Giám đốc",
+      "eco_frontend_badge": "B2C & DROPSHIP PORTAL",
+      "eco_frontend_sub": "(Vinapet.com.vn & Mobile UI)",
+      "eco_shop_flow": "Luồng Mua Sắm",
+      "eco_checkout_flow": "Cổng Thanh Toán",
+      "eco_ai_advisory": "Tư vấn AI Pet",
+      "eco_dropship_hub": "Mạng lưới Dropship",
+      "eco_sales_marketing": "CONVERSION & DIRECT SALES",
+      "eco_sales_marketing_sub": "Chuyển đổi trực tiếp & Tối ưu phí sàn",
+      "eco_backend_badge": "CORE ERP SYSTEM",
+      "eco_backend_sub": "(Internal Operation)",
+      "eco_oem_procure": "Quản lý OEM/OBM & Chuỗi cung ứng",
+      "eco_inv_account": "Tồn kho, Công nợ, Kế toán & Thuế",
+      "eco_auto_module": "Module Tự động hóa Back-office",
+      "eco_efficient_op": "OPERATIONAL EXCELLENCE",
+      "eco_efficient_op_sub": "Loại bỏ thao tác thủ công & Giảm chi phí",
+      "eco_unified_db": "DBMS & Data Pipeline",
+      "eco_unified_db_sub": "MS SQL Scripting · Power BI Analytics · Shopee/TikTok API Sync",
+      "eco_tech_tools": "Công cụ & Năng lực Cốt lõi",
+      "eco_ai_title": "AI AGENT & VIBE-CODING",
+      "wf_title": "MY \"VIBE-CODING\" WORKFLOW",
+      "wf_subtitle": "Từ Tài liệu Nghiệp vụ & Bản vẽ Figma đến Sản phẩm Trực tiếp Hoạt động",
+      "wf_context_1": "Quy trình dựa trên các sản phẩm thực tế: Tài liệu phân tích nghiệp vụ, Bản vẽ Figma luồng mua sắm & thanh toán Vinapet, và Mô hình dữ liệu ERD.",
+      "wf_context_2": "Bước 1 và 2 tạo lập nền tảng UI/UX và logic nghiệp vụ vững chắc; Bước 3 là nơi AI-Agentic được ứng dụng để tăng tốc chuyển đổi thành mã nguồn hoàn chỉnh.",
+      "wf_step1_role": "As UI Designer",
+      "wf_step1_tag": "Figma Prototype",
+      "wf_step1_title": "Step 1 - Thiết kế Luồng Trải nghiệm",
+      "wf_step1_subtitle": "(UI/UX Wireframing & Prototyping)",
+      "wf_step1_desc": "Thiết kế trực tiếp trên Figma toàn bộ hành trình khách hàng (User Journey): Trang chủ, Danh mục, Chi tiết sản phẩm, Giỏ hàng, Phương thức vận chuyển và Cổng thanh toán — tối ưu tỷ lệ chuyển đổi đơn hàng và trải nghiệm mua sắm mượt mà.",
+      "wf_step2_role": "As BA",
+      "wf_step2_tag": "System & Data",
+      "wf_step2_title": "Step 2 - Phân tích Nghiệp vụ & Mô hình hóa Dữ liệu",
+      "wf_step2_subtitle": "(System Design, BPMN & ERD)",
+      "wf_step2_desc": "Xây dựng tài liệu đặc tả PRD/BRD, thiết kế sơ đồ quy trình nghiệp vụ (BPMN, Flowchart) và mô hình dữ liệu thực thể (ERD) trên MS SQL cho các phân hệ ERP: Bán hàng, Tồn kho, Kế toán và Quản lý đại lý Dropshipping.",
+      "wf_step3_role": "As AX-BA",
+      "wf_step3_tag": "AI-Agentic ✨",
+      "wf_step3_title": "Step 3 - Triển khai bằng AI-Agentic",
+      "wf_step3_subtitle": "(Prompt-Driven Implementation)",
+      "wf_step3_desc": "Ứng dụng kỹ thuật Prompt Engineering nâng cao cùng các AI Agent (Claude Code, Antigravity, Figma MAKE, Vercel) để biến bản vẽ và logic nghiệp vụ thành giao diện mã nguồn và tự động hóa quy trình vận hành.",
+      "out_title": "OUTCOMES & IMPACT",
+      "out_subtitle": "Sản phẩm Thực tế: Từ Thiết kế Figma đến Hệ thống Hoạt động",
+      "out_input": "Đầu vào (Input)",
+      "out_input_title": "Bản vẽ Figma & Đặc tả Nghiệp vụ",
+      "out_input_sub": "Figma UI/UX, PRD, BPMN, ERD Data Model",
+      "out_input_cta": "Mở file Figma thiết kế Vinapet",
+      "out_ai_badge": "AI-Agent Powered",
+      "out_output": "Đầu ra (Output)",
+      "out_output_title": "Hệ sinh thái Vinapet Triển khai Thực tế",
+      "out_output_sub": "Website B2C Trực tiếp & ERP Nội bộ Doanh nghiệp",
+      "out_fe_label": "E-commerce Store",
+      "out_fe_title": "Vinapet.com.vn (B2C & Dropship)",
+      "out_fe_cta": "Truy cập Vinapet.com.vn",
+      "out_admin_label": "Internal ERP System",
+      "out_admin_title": "Phân hệ Quản trị Vận hành & Chuỗi cung ứng",
+      "out_admin_cta": "Hệ thống Nội bộ Doanh nghiệp",
+      "out_living_title": "[Living Portfolio] Từ Tài liệu Nghiệp vụ đến Giá trị Doanh nghiệp",
+      "out_living_desc": "Không dừng lại ở những bản vẽ giao diện hay tài liệu mô tả tĩnh, sự kết hợp giữa tư duy Product Owner, kỹ năng BA chặt chẽ và công cụ Vibe-Coding giúp hiện thực hóa thành các sản phẩm giải quyết trực tiếp bài toán chi phí sàn và vận hành chuỗi cung ứng.",
+      "about_title": "Thông tin cá nhân (About Me)",
+      "about_tagline": "PRODUCT OWNER & AI BUILDER",
+      "about_intro": "Xin chào! Tôi là Nguyễn Thành Công — Product Owner với thế mạnh về phân tích quy trình nghiệp vụ ERP, E-commerce và tích hợp các giải pháp AI-Agent để tự động hóa vận hành.",
+      "about_role_pm": "Product Owner / Business Analyst",
+      "about_tab_bio": "Kinh nghiệm & Học vấn",
+      "about_tab_core": "Kỹ năng chuyên môn",
+      "about_tab_achievements": "Thành tựu nổi bật"
+    },
+    "en": {
+      "nav_eco": "Ecosystem",
+      "nav_wf": "Workflow",
+      "nav_out": "Outcomes",
+      "nav_about": "About Me",
+      "hero_badge": "Product Owner & AI Builder",
+      "hero_title": "Vibe Coding Portfolio of Nguyen Thanh Cong",
+      "hero_subtitle": "Product Owner | Business Analyst | AI-Driven Builder",
+      "hero_desc_1": "From business requirement analysis (PRD, BRD, User Story) to system workflow design (BPMN, ERD) and practical deployment via AI Agents (Vibe-Coding).",
+      "hero_desc_2": "Delivering real-world E-commerce & Supply Chain ERP solutions for Vinapet with peak efficiency and minimal cost.",
+      "hero_cta_project": "View Projects",
+      "hero_cta_about": "About Me",
+      "eco_title": "THE VINAPET & ERP ECOSYSTEM",
+      "eco_subtitle": "Omnichannel E-commerce & Enterprise Resource Planning",
+      "eco_actor_customers": "B2C Customers & Dropship Agencies",
+      "eco_actor_operations": "Warehouse & Accounting Ops",
+      "eco_actor_admin": "Product Owner / Executive Board",
+      "eco_frontend_badge": "B2C & DROPSHIP PORTAL",
+      "eco_frontend_sub": "(Vinapet.com.vn & Mobile UI)",
+      "eco_shop_flow": "Shopping Journey",
+      "eco_checkout_flow": "Checkout Gateway",
+      "eco_ai_advisory": "AI Pet Advisory",
+      "eco_dropship_hub": "Dropship Network",
+      "eco_sales_marketing": "CONVERSION & DIRECT SALES",
+      "eco_sales_marketing_sub": "Direct conversion & commission fee elimination",
+      "eco_backend_badge": "CORE ERP SYSTEM",
+      "eco_backend_sub": "(Internal Operation)",
+      "eco_oem_procure": "OEM/OBM Procurement & Supply Chain",
+      "eco_inv_account": "Inventory, Debt, Accounting & Tax",
+      "eco_auto_module": "Back-office Automation Modules",
+      "eco_efficient_op": "OPERATIONAL EXCELLENCE",
+      "eco_efficient_op_sub": "Manual task elimination & cost reduction",
+      "eco_unified_db": "DBMS & Data Pipeline",
+      "eco_unified_db_sub": "MS SQL Scripting · Power BI Analytics · Shopee/TikTok API Sync",
+      "eco_tech_tools": "Tools & Core Competencies",
+      "eco_ai_title": "AI AGENT & VIBE-CODING",
+      "wf_title": "MY \"VIBE-CODING\" WORKFLOW",
+      "wf_subtitle": "From Business Specs & Figma Wireframes to Living Production Products",
+      "wf_context_1": "This workflow builds upon tangible deliverables: Business Requirement Documents, Figma shopping & checkout prototypes, and database ERD models.",
+      "wf_context_2": "While Steps 1 and 2 lay the rock-solid UI/UX and business architecture foundation, Step 3 leverages AI-Agentic workflows to accelerate production-ready delivery.",
+      "wf_step1_role": "As UI Designer",
+      "wf_step1_tag": "Figma Prototype",
+      "wf_step1_title": "Step 1 - Visual Journey Design",
+      "wf_step1_subtitle": "(UI/UX Wireframing & Prototyping)",
+      "wf_step1_desc": "Directly designed the complete end-to-end user journey in Figma: Homepage, Category, Product Detail, Cart, Shipping selection, and Checkout — maximizing order conversion rate and seamless customer satisfaction.",
+      "wf_step2_role": "As BA",
+      "wf_step2_tag": "System & Data",
+      "wf_step2_title": "Step 2 - Business Analysis & Data Modeling",
+      "wf_step2_subtitle": "(System Design, BPMN & ERD)",
+      "wf_step2_desc": "Authored PRD/BRD documentation, designed business process diagrams (BPMN, Flowcharts), and built MS SQL Entity Relationship Diagrams (ERD) for core ERP modules: Sales, Warehouse, Accounting, and Agency Dropshipping.",
+      "wf_step3_role": "As AX-BA",
+      "wf_step3_tag": "AI-Agentic ✨",
+      "wf_step3_title": "Step 3 - AI-Agentic Implementation",
+      "wf_step3_subtitle": "(Prompt-Driven Implementation)",
+      "wf_step3_desc": "Leveraged advanced Prompt Engineering and AI Agents (Claude Code, Antigravity, Figma MAKE, Vercel) to transform design prototypes and business rules directly into live functional code and automated operational workflows.",
+      "out_title": "OUTCOMES & IMPACT",
+      "out_subtitle": "Realized Products: From Figma Specs to Live Functional Ecosystem",
+      "out_input": "Input",
+      "out_input_title": "Figma Designs & Business Specs",
+      "out_input_sub": "Figma UI/UX, PRD, BPMN, ERD Data Model",
+      "out_input_cta": "Open Vinapet Figma Design File",
+      "out_ai_badge": "AI-Agent Powered",
+      "out_output": "Output",
+      "out_output_title": "Production Vinapet Ecosystem",
+      "out_output_sub": "Live Direct B2C Web Platform & Internal Enterprise ERP",
+      "out_fe_label": "E-commerce Store",
+      "out_fe_title": "Vinapet.com.vn (B2C & Dropship)",
+      "out_fe_cta": "Visit Vinapet.com.vn",
+      "out_admin_label": "Internal ERP System",
+      "out_admin_title": "Supply Chain & Operations ERP Module",
+      "out_admin_cta": "Enterprise Internal System",
+      "out_living_title": "[Living Portfolio] From Business Specs to Tangible Enterprise Value",
+      "out_living_desc": "Moving beyond static mockups or theoretical documentation, the fusion of Product Owner leadership, rigorous BA acumen, and Vibe-Coding tools produces live applications that directly cut commission fees and streamline supply chain costs.",
+      "about_title": "About Me",
+      "about_tagline": "PRODUCT OWNER & AI BUILDER",
+      "about_intro": "Hello! I am Nguyen Thanh Cong — Product Owner with deep expertise in ERP business workflows, omnichannel E-commerce, and integrating AI-Agent frameworks for operational automation.",
+      "about_role_pm": "Product Owner / Business Analyst",
+      "about_tab_bio": "Experience & Education",
+      "about_tab_core": "Core Competencies",
+      "about_tab_achievements": "Key Achievements"
+    }
+  },
+  "tabs": {
+    "vi": {
+      "Bio": [
+        {
+          "bold": "Product Owner",
+          "rest": " tại QOV COMPANY LIMITED (12/2025 - Hiện tại): Quản lý Product Backlog, thiết kế luồng quy trình ERP cốt lõi (Kế toán, Bán hàng, Kho, E-commerce, Marketing) và phân hệ Dropshipping tối ưu chi phí chuỗi cung ứng cho nhà máy Vinapet."
+        },
+        {
+          "bold": "Data Analyst",
+          "rest": " tại QOV COMPANY LIMITED (03/2024 - 12/2025): Tích hợp Open API Shopee & TikTok, tối ưu hóa ROAS livestream giúp giảm CPA, tăng 10% lợi nhuận ròng/phiên và giành thêm 15% thị phần ngành hàng thú cưng."
+        },
+        {
+          "bold": "Product Owner",
+          "rest": " tại TADA LABS COMPANY LIMITED (03/2023 - 01/2024): Triển khai giải pháp AI Agent tự động phân bổ tài nguyên, tối ưu UI/UX luồng B2C chuyển đổi người dùng từ sàn về web trực tiếp (tiết kiệm 10-15% chi phí sàn)."
+        },
+        {
+          "bold": "Học vấn & Bằng cấp",
+          "rest": ": Đại học Văn Hiến — MIS (Hệ thống Thông tin Quản lý), GPA 3.17 (2023 - 2027)."
+        },
+        {
+          "bold": "Chứng chỉ quốc tế",
+          "rest": ": Google Project Management Certificate (2025) – Cấp bởi Google via Coursera."
+        },
+        {
+          "bold": "Giải thưởng",
+          "rest": ": Top 3 Finalist Vinamilk Business Analyst Challenge 2025; Á quân (2nd Place Runner-up) Heading for the Future 2024 (Product Management track)."
+        }
+      ],
+      "Core": [
+        {
+          "bold": "Quản trị Sản phẩm (Product Management - PO):",
+          "rest": " Market Research & AI Trend Analysis, Product Discovery, Product Delivery & Vision, Backlog Prioritization, Thực hành Agile/Scrum (Daily Standup, Sprint Planning, Grooming, Retrospective)."
+        },
+        {
+          "bold": "Kỹ thuật Phân tích Nghiệp vụ (BA Techniques):",
+          "rest": " Requirement Elicitation, Analysis & Modelling, SQL Scripting, Wireframing & Prototyping (Figma, Draw.io), AI Prompt (generate Prototype, Document), Data Analyst & Reporting."
+        },
+        {
+          "bold": "Kiến thức Lĩnh vực (Domain Knowledge):",
+          "rest": " ERP Doanh nghiệp, Thương mại điện tử (E-commerce), Marketing & Tối ưu ROAS, Giải pháp AI Agent."
+        },
+        {
+          "bold": "Quy trình AI-Agent & Vibe-Coding:",
+          "rest": " Triển khai AI Agent (Vercel, Claude Code, Antigravity, Figma MAKE), tự động hóa phân bổ tài nguyên và sinh mã nguồn/tài liệu từ prompt."
+        },
+        {
+          "bold": "Công cụ & Công nghệ:",
+          "rest": " MS SQL Server, Power BI, Figma, Draw.io, Tài liệu đặc tả (SRS, BRD, FRD, Confluence), Sơ đồ hệ thống (BPMN, Activity Diagram, Flowchart, Sequence), API Specification, MOS."
+        }
+      ],
+      "Achievements": [
+        {
+          "rest": "Dẫn dắt phát triển phân hệ Dropshipping trên toàn mạng lưới đại lý — thay thế hệ thống POS cũ và thiết kế quy trình nghiệp vụ cho nhà máy Vinapet (mô hình OEM/ODM) nhằm tối ưu hóa chi phí chuỗi cung ứng."
+        },
+        {
+          "rest": "Tối ưu hóa UI/UX B2C và quy trình chăm sóc khách hàng, dịch chuyển thành công người dùng từ Shopee & TikTok về website riêng, loại bỏ 10-15% phí hoa hồng sàn và tăng tỉ lệ chuyển đổi đơn hàng."
+        },
+        {
+          "rest": "Tích hợp Open APIs Shopee và TikTok để thu thập và trực quan hóa dữ liệu đa chiều qua Dashboard, hỗ trợ ban lãnh đạo ra quyết định chiến lược."
+        },
+        {
+          "rest": "Phân tích cạnh tranh trên các sàn thương mại điện tử (cấu trúc giá, tốc độ bán, đánh giá), đề xuất chiến lược giá linh hoạt giúp chiếm lĩnh thêm 15% thị phần ngành hàng thú cưng."
+        },
+        {
+          "rest": "Đạt Top 3 Chung kết Cuộc thi Vinamilk Business Analyst Challenge 2025 và giải Á quân Heading for the Future 2024 (mảng Product Management)."
+        }
+      ]
+    },
+    "en": {
+      "Bio": [
+        {
+          "bold": "Product Owner",
+          "rest": " at QOV COMPANY LIMITED (Dec 2025 - Present): Owned Product Backlog, collaborated with outsourced teams to deploy core ERP modules (Accounting, Sales, Warehouse, E-commerce, Marketing), and engineered Dropshipping modules for Vinapet's OEM/ODM factory."
+        },
+        {
+          "bold": "Data Analyst",
+          "rest": " at QOV COMPANY LIMITED (March 2024 - Dec 2025): Integrated Shopee & TikTok Open APIs, optimized livestream ROAS to reduce CPA and increase net profit by 10% per session, capturing 15% market share in pet industry."
+        },
+        {
+          "bold": "Product Owner",
+          "rest": " at TADA LABS COMPANY LIMITED (March 2023 - Jan 2024): Deployed AI Agent solutions for automated resource allocation, optimized B2C UI/UX to migrate users from platforms to direct web, cutting 10-15% commission fees."
+        },
+        {
+          "bold": "Education",
+          "rest": ": Van Hien University — MIS (Management Information System), GPA 3.17 (2023 - 2027)."
+        },
+        {
+          "bold": "Certification",
+          "rest": ": Google Project Management Certificate (2025) – Issued by Google via Coursera."
+        },
+        {
+          "bold": "Honors & Awards",
+          "rest": ": Top 3 Finalist Vinamilk Business Analyst Challenge 2025; 2nd Place (Runner-up) Heading for the Future 2024 (Product Management track)."
+        }
+      ],
+      "Core": [
+        {
+          "bold": "Product Management (PO):",
+          "rest": " Market Research & AI Trend Analysis, Product Discovery, Product Delivery & Vision, Backlog Prioritization, Agile/Scrum Practice (Daily Standup, Sprint Planning, Grooming, Retrospective)."
+        },
+        {
+          "bold": "Business Analysis Techniques:",
+          "rest": " Requirement Elicitation, Analysis and Modelling, SQL Scripting, Wireframing & Prototyping (Figma, Draw.io), AI Prompt (generate Prototype, Document), Data Analyst & Reporting."
+        },
+        {
+          "bold": "Domain Knowledge:",
+          "rest": " ERP, E-commerce, Marketing, AI Agent workflows."
+        },
+        {
+          "bold": "AI-Agentic & Vibe-Coding Workflow:",
+          "rest": " Deploying AI Agent solutions (Vercel, Figma MAKE, Claude code, Antigravity) to translate BA/UX deliverables directly into live products and automated operations."
+        },
+        {
+          "bold": "Tools & Technologies:",
+          "rest": " DBMS (MS SQL), Power BI, Figma, Draw.io, Documenting (SRS, BRD, FRD, Confluence), Diagramming (BPMN, Activity Diagram, Flowchart, Sequence), API specification, MOS."
+        }
+      ],
+      "Achievements": [
+        {
+          "rest": "Led the development of a Dropshipping module across the agency network — replacing legacy POS systems — and engineered workflows for the Vinapet factory's OEM/ODM business models to optimize supply chain costs."
+        },
+        {
+          "rest": "Optimized B2C UI/UX and customer workflows, successfully migrating users from Shopee and TikTok to direct website, eliminating 10-15% platform fees and boosting conversion rates."
+        },
+        {
+          "rest": "Integrated Shopee and TikTok Open APIs to collect and visualize multi-dimensional data via Dashboards, delivering a holistic business overview that guided executive decisions."
+        },
+        {
+          "rest": "Conducted competitive intelligence across E-commerce platforms, enabling a dynamic pricing strategy that captured an additional 15% market share in the pet industry."
+        },
+        {
+          "rest": "Achieved Top 3 Finalist at Vinamilk Business Analyst Challenge 2025 and 2nd Place (Runner-up) in Heading for the Future 2024 (Product Management track)."
+        }
+      ]
+    }
+  }
+}
