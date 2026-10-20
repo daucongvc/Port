@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vibe Coding Portfolio - Nguyen Thanh Cong | Product Owner</title>
+  <meta name="description" content="Từ phân tích nghiệp vụ (BRD/PRD), kiến trúc hệ thống (BPMN/ERD) đến triển khai sản phẩm thực tế với AI Agent (Vibe-Coding). Portfolio của Nguyễn Thành Công." />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font and Custom Styles with Token System -->
+  <style>
+    :root {
+      /* Typography Tokens */
+      --font-family-primary: Arial, Helvetica, sans-serif;
+      --font-family-stack: Arial, Helvetica, sans-serif;
+      --font-size-xs: 9px;
+      --font-size-sm: 10px;
+      --font-size-md: 11px;
+      --font-size-lg: 12px;
+      --font-size-xl: 14px;
+      --font-size-2xl: 16px;
+      --font-size-3xl: 18px;
+      --font-size-4xl: 24px;
+      --font-size-base: 16px;
+      --font-weight-base: 400;
+      --font-line-height-base: 24px;
+
+      /* Color Tokens */
+      --color-text-primary: #1a1a2e;
+      --color-text-secondary: #475569;
+      --color-text-tertiary: #0f172a;
+      --color-text-inverse: #ffffff;
+      --color-surface-base: #000000;
+      --color-surface-strong: #1c4ba8;
+      --color-surface-brand-light: #f0f5fc;
+      --color-surface-brand-border: #c1d7f4;
+      --color-surface-accent-blue: #3173d1;
+      --color-surface-bg-canvas: #FAFAF8;
+
+      /* Spacing Tokens */
+      --space-1: 2px;
+      --space-2: 4px;
+      --space-3: 8px;
+      --space-4: 10px;
+      --space-5: 12px;
+      --space-6: 16px;
+      --space-7: 20px;
+      --space-8: 24px;
+
+      /* Radius Tokens */
+      --radius-xs: 8px;
+      --radius-sm: 12px;
+      --radius-md: 9999px;
+
+      /* Shadow Tokens */
+      --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+      --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+      --shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+      /* Motion Tokens */
+      --motion-duration-instant: 150ms;
+      --motion-duration-fast: 300ms;
+      --motion-duration-normal: 500ms;
+    }
+
+    body {
+      font-family: var(--font-family-primary);
+      color: var(--color-text-primary);
+      background-color: var(--color-surface-bg-canvas);
+      line-height: var(--font-line-height-base);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Focus-visible accessibility constraints (WCAG 2.2 AA) */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    [tabindex="0"]:focus-visible {
+      outline: 2px solid var(--color-surface-strong);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 4px rgba(28, 75, 168, 0.2);
+    }
+
+    .terminal-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+    .terminal-scroll::-webkit-scrollbar-thumb {
+      background: #4b5563;
+      border-radius: 4px;
+    }
+
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.02); }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 3s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="relative min-h-screen selection:bg-blue-100 selection:text-blue-900">
+
+  <!-- Floating Language Switcher (EN / VI) -->
+  <button id="langToggleBtn" 
+          class="fixed top-6 right-6 z-50 flex items-center gap-2 bg-white/95 backdrop-blur border border-gray-200 text-sm font-bold px-4 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 cursor-pointer active:scale-95" 
+          aria-label="Chuyển đổi ngôn ngữ Tiếng Việt và English"
+          title="Chuyển đổi ngôn ngữ / Switch Language">
+    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18z"></path>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3.6 9h16.8M3.6 15h16.8"></path>
+      <path stroke-linecap="round" stroke-linejoin="round" d="M12 3a15.3 15.3 0 014 9 15.3 15.3 0 01-4 9 15.3 15.3 0 01-4-9 15.3 15.3 0 014-9z"></path>
+    </svg>
+    <span id="langLabel" class="text-gray-800 uppercase tracking-wider font-semibold">EN</span>
+  </button>
+
+  <!-- Sticky Quick Nav Header -->
+  <header class="sticky top-0 z-40 bg-white/85 backdrop-blur-md border-b border-gray-100 px-6 py-3 transition-all duration-300">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 text-sm font-extrabold tracking-tight text-gray-900 hover:text-blue-700 transition-colors">
+        <div class="w-9 h-9 rounded-full overflow-hidden ring-2 ring-[#1c4ba8]/30 shadow-sm shrink-0">
+          <img src="images/avatar_cong.png" alt="Nguyen Thanh Cong" class="w-full h-full object-cover" style="object-position: 50% 16%;" />
+        </div>
+        <div class="flex flex-col">
+          <span class="leading-none text-xs sm:text-sm font-bold">Nguyen Thanh Cong</span>
+          <span class="text-[10px] text-gray-500 font-semibold mt-0.5">Product Owner · Portfolio</span>
+        </div>
+      </a>
+      <nav class="hidden sm:flex items-center gap-6 text-xs font-bold text-gray-600" aria-label="Main Navigation">
+        <a href="#ecosystem" id="nav_eco" class="hover:text-[#1c4ba8] transition-colors py-1">Hệ sinh thái</a>
+        <a href="#workflow" id="nav_wf" class="hover:text-[#1c4ba8] transition-colors py-1">Quy trình</a>
+        <a href="#outcomes" id="nav_out" class="hover:text-[#1c4ba8] transition-colors py-1">Kết quả</a>
+        <a href="#about" id="nav_about" class="hover:text-[#1c4ba8] transition-colors py-1">Về tôi</a>
+      </nav>
+      <div class="w-16 sm:hidden"></div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="min-h-[75vh] flex flex-col justify-center max-w-5xl mx-auto px-6 py-16">
+    <div class="flex flex-col items-center md:items-start text-center md:text-left">
+      <span id="hero_badge" class="inline-block px-4 py-1 mb-5 text-sm font-bold rounded-full border border-[#c1d7f4] bg-[#f0f5fc] text-[#1c4ba8] shadow-sm">
+        Product Owner &amp; AI Builder
+      </span>
+      <h1 id="hero_title" class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-3 tracking-tight leading-tight">
+        Vibe Coding Portfolio of Nguyen Thanh Cong
+      </h1>
+      <p id="hero_subtitle" class="text-sm md:text-lg font-bold text-gray-700 mb-6 tracking-wide">
+        Product Owner | Business Analyst | AI-Driven Builder
+      </p>
+      <div class="space-y-2 text-gray-500 w-full text-sm leading-relaxed md:w-4/5 mb-8">
+        <p id="hero_desc_1">
+          Từ phân tích bài toán nghiệp vụ (PRD, BRD, User Story) đến thiết kế luồng hệ thống (BPMN, ERD) và triển khai thực tế bằng AI Agent (Vibe-Coding).
+        </p>
+        <p id="hero_desc_2">
+          Hiện thực hóa các giải pháp E-commerce &amp; Hệ thống ERP quản trị chuỗi cung ứng Vinapet với hiệu suất tối ưu và chi phí tối thiểu.
+        </p>
+      </div>
+      <div class="flex flex-wrap gap-3 justify-center md:justify-start">
+        <a href="#ecosystem" id="hero_cta_project" class="inline-flex items-center gap-2 bg-gray-900 hover:bg-black text-white text-sm font-bold px-6 py-3 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg shadow-md active:scale-95">
+          <span>Xem dự án</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"></path></svg>
+        </a>
+        <a href="#about" id="hero_cta_about" class="inline-flex items-center gap-2 border border-gray-300 hover:border-gray-900 text-gray-700 hover:text-gray-900 text-sm font-bold px-6 py-3 rounded-full transition-all duration-300 hover:bg-gray-50 active:scale-95">
+          Về tôi (About Me)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Ecosystem Section (Vinapet & Internal ERP) -->
+  <section id="ecosystem" class="max-w-6xl mx-auto px-6 py-20 border-t border-gray-100">
+    <div class="text-center mb-12">
+      <h2 id="eco_title" class="text-2xl md:text-4xl font-black tracking-tight text-gray-900 uppercase">
+        THE VINAPET &amp; ERP ECOSYSTEM
+      </h2>
+      <p id="eco_subtitle" class="text-sm md:text-base font-medium text-gray-500 mt-2">
+        Hệ sinh thái E-commerce Đa kênh &amp; ERP Quản trị Doanh nghiệp
+      </p>
+    </div>
+
+    <!-- 3-Tier Architecture Board -->
+    <div class="rounded-3xl border border-gray-200/80 overflow-hidden shadow-lg bg-white">
+      
+      <!-- Tier 1: Actor Layer -->
+      <div class="flex border-b border-gray-100">
+        <div class="w-12 sm:w-16 shrink-0 flex items-center justify-center border-r border-gray-100 bg-[#f0f5fc]">
+          <span class="text-[10px] sm:text-xs font-black tracking-widest uppercase text-center" style="writing-mode: vertical-rl; transform: rotate(180deg); color: #3173d1;">
+            ACTOR LAYER
+          </span>
+        </div>
+        <div class="flex-1 px-6 sm:px-8 py-6 bg-[#f8faff] flex flex-wrap items-end justify-between gap-4">
+          <div class="flex gap-6 sm:gap-10">
+            <!-- Customers / Agency -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-sm bg-[#e3edfa] text-[#3173d1]">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"></path></svg>
+              </div>
+              <span id="eco_actor_customers" class="text-xs font-semibold text-gray-700">Khách B2C &amp; Đại lý Dropship</span>
+              <svg class="w-3 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2" viewBox="0 0 12 16"><path d="M6 0 L6 16" stroke-linecap="round"></path><path d="M3 13 L6 16 L9 13"></path></svg>
+            </div>
+            <!-- Operations / Sales -->
+            <div class="flex flex-col items-center gap-2">
+              <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-sm bg-[#e3edfa] text-[#3173d1]">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path></svg>
+              </div>
+              <span id="eco_actor_operations" class="text-xs font-semibold text-gray-700">Vận hành Kho &amp; Kế toán</span>
+              <svg class="w-3 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2" viewBox="0 0 12 16"><path d="M6 0 L6 16" stroke-linecap="round"></path><path d="M3 13 L6 16 L9 13"></path></svg>
+            </div>
+          </div>
+          <!-- Product Owner / Admin -->
+          <div class="flex flex-col items-center gap-2">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center shadow-sm bg-[#1c4ba8] text-white">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4l5 2.18V11c0 3.5-2.33 6.79-5 7.93-2.67-1.14-5-4.43-5-7.93V7.18L12 5z"></path></svg>
+            </div>
+            <span id="eco_actor_admin" class="text-xs font-semibold text-gray-700">Product Owner / Ban Giám đốc</span>
+            <svg class="w-3 h-4 text-[#1c4ba8]" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2" viewBox="0 0 12 16"><path d="M6 0 L6 16" stroke-linecap="round"></path><path d="M3 13 L6 16 L9 13"></path></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 2: Application Layer -->
+      <div class="flex border-b border-gray-100">
+        <div class="w-12 sm:w-16 shrink-0 flex items-center justify-center border-r border-gray-100 bg-white">
+          <span class="text-[10px] sm:text-xs font-black tracking-widest uppercase text-center" style="writing-mode: vertical-rl; transform: rotate(180deg); color: #3173d1;">
+            APPLICATION
+          </span>
+        </div>
+        <div class="flex-1 px-4 sm:px-6 py-6 bg-white flex flex-col md:flex-row items-stretch gap-4">
+          <!-- Frontend Box (Vinapet Store) -->
+          <div class="flex-1 rounded-2xl border-2 p-5 flex flex-col bg-[#f0f5fc] border-[#c1d7f4]">
+            <div class="text-center mb-4">
+              <span id="eco_frontend_badge" class="inline-block px-4 py-1 rounded-full text-white text-xs font-black tracking-wide shadow-sm bg-[#3173d1]">
+                B2C &amp; DROPSHIP PORTAL
+              </span>
+              <p id="eco_frontend_sub" class="text-xs font-semibold mt-1 text-[#19418e]">
+                (Vinapet.com.vn &amp; Mobile UI)
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-2 mb-4 flex-1">
+              <div class="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm border border-white/80 gap-1 text-center">
+                <span class="text-xl">🛍️</span>
+                <span id="eco_shop_flow" class="text-[10px] font-bold text-gray-700">Luồng Mua Sắm</span>
+              </div>
+              <div class="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm border border-white/80 gap-1 text-center">
+                <span class="text-xl">💳</span>
+                <span id="eco_checkout_flow" class="text-[10px] font-bold text-gray-700">Cổng Thanh Toán</span>
+              </div>
+              <div class="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm border border-white/80 gap-1 text-center">
+                <span class="text-xl">🤖</span>
+                <span id="eco_ai_advisory" class="text-[10px] font-bold text-gray-700">Tư vấn AI Pet</span>
+              </div>
+              <div class="bg-white rounded-xl p-3 flex flex-col items-center justify-center shadow-sm border border-white/80 gap-1 text-center">
+                <span class="text-xl">📦</span>
+                <span id="eco_dropship_hub" class="text-[10px] font-bold text-gray-700">Mạng lưới Dropship</span>
+              </div>
+            </div>
+            <div class="rounded-xl py-2.5 text-center bg-gray-800 text-white">
+              <span id="eco_sales_marketing" class="text-[10px] font-black tracking-widest uppercase">CONVERSION &amp; DIRECT SALES</span><br/>
+              <span id="eco_sales_marketing_sub" class="text-gray-400 text-[9px]">Chuyển đổi trực tiếp &amp; Tối ưu phí sàn</span>
+            </div>
+          </div>
+
+          <!-- Connector / API Bridge -->
+          <div class="flex md:flex-col items-center justify-center gap-2 px-2 py-2 md:py-0">
+            <div class="flex-1 md:flex-none h-px md:h-10 md:w-px border-t md:border-t-0 md:border-l border-dashed border-gray-400"></div>
+            <div class="rounded-lg border border-gray-200 bg-white px-3 py-2 text-center shadow-sm shrink-0">
+              <p class="text-[10px] font-black text-gray-800 whitespace-nowrap">OPEN API &amp; SYNC</p>
+              <p class="text-[9px] text-gray-400">Shopee · TikTok · POS</p>
+              <div class="flex items-center justify-center gap-1 mt-1 text-gray-500">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"></path></svg>
+                <svg class="w-3 h-3 text-[#3173d1]" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"></path></svg>
+              </div>
+            </div>
+            <div class="flex-1 md:flex-none h-px md:h-10 md:w-px border-t md:border-t-0 md:border-l border-dashed border-gray-400"></div>
+          </div>
+
+          <!-- Back-Office ERP Box -->
+          <div class="flex-1 rounded-2xl border-2 p-5 flex flex-col bg-[#0f1f3d] border-[#1c4ba8]">
+            <div class="text-center mb-4">
+              <span id="eco_backend_badge" class="inline-block px-4 py-1 rounded-full text-white text-xs font-black tracking-wide shadow-sm bg-[#1c4ba8]">
+                CORE ERP SYSTEM
+              </span>
+              <p id="eco_backend_sub" class="text-xs font-semibold mt-1 text-[#8eb8eb]">
+                (Internal Operation)
+              </p>
+            </div>
+            <div class="flex flex-col gap-2 mb-4 flex-1">
+              <div class="rounded-xl px-4 py-3 flex items-center gap-3 bg-[#1a2e56]">
+                <span class="text-lg shrink-0">🏭</span>
+                <span id="eco_oem_procure" class="text-[11px] font-bold text-white">Quản lý OEM/OBM &amp; Chuỗi cung ứng</span>
+              </div>
+              <div class="rounded-xl px-4 py-3 flex items-center gap-3 bg-[#1a2e56]">
+                <span class="text-lg shrink-0">📊</span>
+                <span id="eco_inv_account" class="text-[11px] font-bold text-white">Tồn kho, Công nợ, Kế toán &amp; Thuế</span>
+              </div>
+              <div class="rounded-xl px-4 py-3 flex items-center gap-3 bg-[#1a2e56]">
+                <span class="text-lg shrink-0">🤖</span>
+                <span id="eco_auto_module" class="text-[11px] font-bold text-white">Module Tự động hóa Back-office</span>
+              </div>
+            </div>
+            <div class="rounded-xl py-2.5 text-center bg-[#2058b2] text-white">
+              <span id="eco_efficient_op" class="text-[10px] font-black tracking-widest uppercase">OPERATIONAL EXCELLENCE</span><br/>
+              <span id="eco_efficient_op_sub" class="text-[9px] text-[#8eb8eb]">Loại bỏ thao tác thủ công &amp; Giảm chi phí</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier 3: Data Layer -->
+      <div class="flex">
+        <div class="w-12 sm:w-16 shrink-0 flex items-center justify-center border-r border-gray-100 bg-[#f0f5fc]">
+          <span class="text-[10px] sm:text-xs font-black tracking-widest uppercase text-center" style="writing-mode: vertical-rl; transform: rotate(180deg); color: #3173d1;">
+            DATA LAYER
+          </span>
+        </div>
+        <div class="flex-1 px-8 py-6 bg-[#f8faff] flex flex-col items-center justify-center gap-3">
+          <div class="w-full flex justify-around px-16 mb-1">
+            <div class="w-px h-6 border-l-2 border-dashed border-gray-300"></div>
+            <div class="w-px h-6 border-l-2 border-dashed border-[#1c4ba8]"></div>
+          </div>
+          <div class="bg-white rounded-2xl border border-gray-200 shadow-md px-8 py-4 flex items-center gap-4 hover:shadow-lg transition-shadow">
+            <div class="w-10 h-10 rounded-xl bg-red-50 text-red-600 flex items-center justify-center shrink-0 border border-red-200">
+              <img src="mssql.svg" alt="MS SQL" class="w-6 h-6 object-contain" />
+            </div>
+            <div>
+              <p id="eco_unified_db" class="font-black text-gray-800 tracking-wider text-sm uppercase">DBMS &amp; Data Pipeline</p>
+              <p id="eco_unified_db_sub" class="text-xs text-gray-500 mt-0.5">MS SQL Scripting · Power BI Analytics · Shopee/TikTok API Sync</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Tech & Tools Bar (Updated with UI/UX, Data Tools, PO Skills, AI Stack) -->
+    <div class="mt-10 rounded-3xl border border-gray-100 p-6 bg-[#f7f9fc] shadow-sm">
+      <p id="eco_tech_tools" class="text-center text-[11px] font-black uppercase tracking-widest text-gray-400 mb-5">Tools &amp; Core Competencies</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-bold">
+        
+        <!-- 1. UI/UX DESIGN (Figma, Draw.io) -->
+        <div class="bg-white border border-gray-100 rounded-2xl px-5 py-4 flex flex-col items-center shadow-sm">
+          <span class="text-gray-400 text-[10px] mb-3 uppercase tracking-wider font-extrabold">UI/UX DESIGN</span>
+          <div class="flex gap-6 items-center">
+            <span class="flex flex-col items-center gap-1.5 text-gray-700 text-[10px]">
+              <img alt="Figma" src="figma.svg" class="w-7 h-7 object-contain" />Figma
+            </span>
+            <span class="flex flex-col items-center gap-1.5 text-gray-700 text-[10px]">
+              <img alt="Draw.io" src="drawio.svg" class="w-7 h-7 object-contain" />Draw.io
+            </span>
+          </div>
+          <span class="mt-3 text-[9px] text-gray-400 text-center font-medium">Wireframing · Prototyping</span>
+        </div>
+
+        <!-- 2. DATA & DBMS (MS SQL, Power BI with Tool Images) -->
+        <div class="bg-white border border-gray-100 rounded-2xl px-5 py-4 flex flex-col items-center shadow-sm">
+          <span class="text-gray-400 text-[10px] mb-3 uppercase tracking-wider font-extrabold">DATA &amp; DBMS</span>
+          <div class="flex gap-6 items-center">
+            <span class="flex flex-col items-center gap-1.5 text-gray-700 text-[10px]">
+              <img alt="MS SQL" src="mssql.svg" class="w-7 h-7 object-contain" />MS SQL
+            </span>
+            <span class="flex flex-col items-center gap-1.5 text-gray-700 text-[10px]">
+              <img alt="Power BI" src="powerbi.svg" class="w-7 h-7 object-contain" />Power BI
+            </span>
+          </div>
+          <span class="mt-3 text-[9px] text-gray-400 text-center font-medium">Data Modeling · Open API Sync</span>
+        </div>
+
+        <!-- 3. PRODUCT MANAGEMENT / PO SKILLS (Research, Discovery, Delivery, Agile) -->
+        <div class="bg-white border border-gray-100 rounded-2xl px-5 py-4 flex flex-col items-center shadow-sm">
+          <span class="text-[#1c4ba8] text-[10px] mb-2 uppercase tracking-wider font-extrabold">PRODUCT OWNER (PO)</span>
+          <div class="flex flex-col gap-1.5 w-full text-[10px] text-gray-700 font-semibold">
+            <span class="bg-blue-50 text-[#1c4ba8] px-2.5 py-1 rounded-md text-center">Market Research &amp; AI Trends</span>
+            <span class="bg-blue-50 text-[#1c4ba8] px-2.5 py-1 rounded-md text-center">Product Discovery &amp; Delivery</span>
+            <span class="bg-blue-50 text-[#1c4ba8] px-2.5 py-1 rounded-md text-center">Backlog Prioritization &amp; Agile</span>
+          </div>
+        </div>
+
+        <!-- 4. AI AGENTS & VIBE CODING -->
+        <div class="rounded-2xl px-5 py-4 flex flex-col shadow-sm border-2 bg-[#f0f5fc] border-[#c1d7f4] text-[#10234a]">
+          <span id="eco_ai_title" class="text-[10px] font-black mb-2 text-center uppercase tracking-wider text-[#19418e]">
+            AI AGENT &amp; VIBE-CODING
+          </span>
+          <div class="flex justify-center gap-4 mb-2">
+            <span class="flex flex-col items-center gap-1 text-gray-700 text-[9px] font-bold">
+              <img alt="Claude" src="claude.svg" class="w-5 h-5 object-contain" />Claude
+            </span>
+            <span class="flex flex-col items-center gap-1 text-gray-700 text-[9px] font-bold">
+              <span class="w-5 h-5 rounded bg-purple-100 text-purple-700 flex items-center justify-center text-[8px] font-black">AGY</span>Antigravity
+            </span>
+            <span class="flex flex-col items-center gap-1 text-gray-700 text-[9px] font-bold">
+              <img alt="VS Code" src="vs_code.svg" class="w-5 h-5 object-contain" />VS Code
+            </span>
+          </div>
+          <span class="text-[9px] text-[#19418e] font-semibold text-center bg-[#e3edfa] rounded py-0.5">Prompt-driven Prototyping</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- My Vibe-Coding Workflow Section -->
+  <section id="workflow" class="py-20 px-6 bg-white border-t border-gray-100">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-10">
+        <h2 id="wf_title" class="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900">
+          MY &quot;VIBE-CODING&quot; WORKFLOW
+        </h2>
+        <p id="wf_subtitle" class="text-base md:text-lg font-medium text-gray-500 mt-2">
+          Từ Tài liệu Nghiệp vụ &amp; Bản vẽ Figma đến Sản phẩm Trực tiếp Hoạt động
+        </p>
+      </div>
+
+      <!-- Context Callout -->
+      <div class="mb-10 flex items-start gap-3 bg-amber-50 border border-amber-200 rounded-2xl px-5 py-4 max-w-3xl mx-auto">
+        <span class="text-lg shrink-0 mt-0.5">📌</span>
+        <div class="text-sm text-amber-900 leading-relaxed">
+          <p><strong class="font-bold">[Ghi chú quy trình]</strong> <span id="wf_context_1">Quy trình dựa trên các sản phẩm thực tế: Tài liệu phân tích nghiệp vụ, Bản vẽ Figma luồng mua sắm &amp; thanh toán Vinapet, và Mô hình dữ liệu ERD.</span></p>
+          <p class="mt-1" id="wf_context_2">Bước 1 và 2 tạo lập nền tảng UI/UX và logic nghiệp vụ vững chắc; Bước 3 là nơi AI-Agentic được ứng dụng để tăng tốc chuyển đổi thành mã nguồn hoàn chỉnh.</p>
+        </div>
+      </div>
+
+      <!-- 3 Steps Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+        
+        <!-- Step 1: UI Designer (Figma Vinapet) -->
+        <div class="bg-[#fafaf8] rounded-3xl p-6 border border-gray-100 shadow-sm flex flex-col h-full hover:shadow-md transition-all duration-300">
+          <div class="flex items-center justify-between w-full mb-4">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-gray-200 text-gray-600">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"></path></svg>
+              </div>
+              <span id="wf_step1_role" class="text-xs font-bold text-gray-500 uppercase tracking-wider">As UI Designer</span>
+            </div>
+            <span id="wf_step1_tag" class="text-[10px] font-black uppercase tracking-widest text-gray-400 bg-gray-200/70 px-3 py-1 rounded-full">Figma Prototype</span>
+          </div>
+          <!-- Figma Image of User with Direct Click Link -->
+          <a href="https://www.figma.com/design/xw67ceKiKR8E3cESfVjSt9/Vinapet-kh%C3%A1ch?node-id=0-1&p=f&t=IWLMXmWGAbtK20j4-0" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             title="Xem bản vẽ chi tiết trên Figma" 
+             class="block rounded-xl mb-4 border border-gray-200/60 overflow-hidden h-48 relative bg-gray-900 group cursor-pointer">
+            <img alt="Vinapet Figma Design - Luồng mua sắm & thanh toán" 
+                 src="images/vinapet_hero.png" 
+                 class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-between p-3">
+              <span class="text-[11px] text-white font-medium">Vinapet UI/UX - Mở Figma ↗</span>
+            </div>
+          </a>
+          <div class="flex flex-col flex-grow">
+            <h3 class="font-bold text-base mb-2 text-gray-900">
+              <span id="wf_step1_title">Step 1 - Thiết kế Luồng Trải nghiệm</span><br/>
+              <span id="wf_step1_subtitle" class="text-xs text-gray-400 font-semibold">(UI/UX Wireframing &amp; Prototyping)</span>
+            </h3>
+            <p id="wf_step1_desc" class="text-xs text-gray-500 leading-relaxed">
+              Thiết kế trực tiếp trên Figma toàn bộ hành trình khách hàng (User Journey): Trang chủ, Danh mục, Chi tiết sản phẩm, Giỏ hàng, Phương thức vận chuyển và Cổng thanh toán — tối ưu tỷ lệ chuyển đổi đơn hàng và trải nghiệm mua sắm mượt mà.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2: BA (Kept) -->
+        <div class="bg-[#fafaf8] rounded-3xl p-6 border border-gray-100 shadow-sm flex flex-col h-full hover:shadow-md transition-all duration-300">
+          <div class="flex items-center justify-between w-full mb-4">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center bg-gray-200 text-gray-600">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"></path></svg>
+              </div>
+              <span id="wf_step2_role" class="text-xs font-bold text-gray-500 uppercase tracking-wider">As BA</span>
+            </div>
+            <span id="wf_step2_tag" class="text-[10px] font-black uppercase tracking-widest text-gray-400 bg-gray-200/70 px-3 py-1 rounded-full">System &amp; Data</span>
+          </div>
+          <div class="rounded-xl mb-4 border border-gray-200/60 overflow-hidden h-48 relative bg-gray-100">
+            <img alt="System Design & ERD" src="images/ERD_picture.png" class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="flex flex-col flex-grow">
+            <h3 class="font-bold text-base mb-2 text-gray-900">
+              <span id="wf_step2_title">Step 2 - Phân tích Nghiệp vụ &amp; Mô hình hóa Dữ liệu</span><br/>
+              <span id="wf_step2_subtitle" class="text-xs text-gray-400 font-semibold">(System Design, BPMN &amp; ERD)</span>
+            </h3>
+            <p id="wf_step2_desc" class="text-xs text-gray-500 leading-relaxed">
+              Xây dựng tài liệu đặc tả PRD/BRD, thiết kế sơ đồ quy trình nghiệp vụ (BPMN, Flowchart) và mô hình dữ liệu thực thể (ERD) trên MS SQL cho các phân hệ ERP: Bán hàng, Tồn kho, Kế toán và Quản lý đại lý Dropshipping.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3: AX-BA / AI-Agentic (Kept) -->
+        <div class="rounded-3xl p-6 border flex flex-col h-full bg-[#fffbf5] border-[#fde0b0] shadow-md hover:shadow-lg transition-all duration-300">
+          <div class="flex items-center justify-between w-full mb-4">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center text-white bg-gradient-to-br from-purple-500 to-orange-500 shadow-sm">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"></path></svg>
+              </div>
+              <span id="wf_step3_role" class="text-xs font-bold text-purple-700 uppercase tracking-wider">As AX-BA</span>
+            </div>
+            <span id="wf_step3_tag" class="text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full text-white bg-gradient-to-r from-purple-600 to-orange-500 shadow-sm">AI-Agentic ✨</span>
+          </div>
+
+          <!-- Code Terminal Box -->
+          <div class="bg-gray-900 rounded-xl mb-4 p-4 border border-orange-200/40 h-48 flex flex-col overflow-hidden text-left shadow-inner">
+            <div class="flex items-center gap-1.5 border-b border-gray-700 pb-2 mb-2">
+              <div class="w-2 h-2 rounded-full bg-red-500"></div>
+              <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+              <div class="w-2 h-2 rounded-full bg-green-500"></div>
+              <span class="text-[9px] text-gray-400 ml-1 font-mono">claude-code · antigravity · vibe-coding</span>
+            </div>
+            <div class="flex flex-col text-[10px] text-gray-300 font-mono gap-1 flex-1 terminal-scroll overflow-y-auto">
+              <span class="text-purple-400">✨ AI Prompt Engineering Loop</span>
+              <span class="text-gray-400">&gt; Figma MAKE: Generate UI components from Vinapet frame...</span>
+              <span class="text-green-400">✓ Checkout flow &amp; Cart state generated</span>
+              <span class="text-gray-400">&gt; Prompt: Map ERP database schema &amp; automated workflow...</span>
+              <span class="text-green-400">✓ Dropship module API sync verified</span>
+              <span class="text-orange-400 font-bold mt-1">⚡ Vibe-coding cycle completed</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col flex-grow">
+            <h3 class="font-bold text-base mb-2 text-[#7c3aed]">
+              <span id="wf_step3_title">Step 3 - Triển khai bằng AI-Agentic</span><br/>
+              <span id="wf_step3_subtitle" class="text-xs font-semibold text-[#f97316]">(Prompt-Driven Implementation)</span>
+            </h3>
+            <p id="wf_step3_desc" class="text-xs text-[#78350f] leading-relaxed">
+              Ứng dụng kỹ thuật Prompt Engineering nâng cao cùng các AI Agent (Claude Code, Antigravity, Figma MAKE, Vercel) để biến bản vẽ và logic nghiệp vụ thành giao diện mã nguồn và tự động hóa quy trình vận hành.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes & Impact Section -->
+  <section id="outcomes" class="max-w-6xl mx-auto px-6 py-20 border-t border-gray-100">
+    <div class="text-center mb-16">
+      <h2 id="out_title" class="text-2xl md:text-3xl font-black tracking-tight text-gray-900 uppercase">
+        OUTCOMES &amp; IMPACT
+      </h2>
+      <p id="out_subtitle" class="text-sm md:text-base font-medium text-gray-500 mt-2">
+        Sản phẩm Thực tế: Từ Thiết kế Figma đến Hệ thống Hoạt động
+      </p>
+    </div>
+
+    <!-- Comparison Cards -->
+    <div class="relative my-10">
+      <div class="flex flex-col md:flex-row items-stretch justify-center w-full gap-8">
+        
+        <!-- Input: Traditional Deliverables (User Figma Link) -->
+        <div class="w-full md:w-1/3 bg-white border border-gray-200 rounded-3xl p-6 shadow-sm flex flex-col">
+          <div class="mb-4">
+            <span id="out_input" class="text-[10px] font-black uppercase tracking-widest text-gray-400">Input</span>
+            <h3 id="out_input_title" class="text-base font-extrabold text-gray-900 mt-1">Bản vẽ Figma &amp; Đặc tả</h3>
+            <p id="out_input_sub" class="text-xs text-gray-400 mt-0.5">Figma UI/UX, PRD, BPMN, ERD Data Model</p>
+          </div>
+          <!-- Clickable Figma thumbnail -->
+          <a href="https://www.figma.com/design/xw67ceKiKR8E3cESfVjSt9/Vinapet-kh%C3%A1ch?node-id=0-1&p=f&t=IWLMXmWGAbtK20j4-0" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             title="Mở file thiết kế Figma"
+             class="block rounded-xl overflow-hidden border border-gray-100 flex-1 relative min-h-[180px] bg-gray-900 group cursor-pointer">
+            <img alt="Figma Vinapet Design" src="images/vinapet_hero.png" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <span class="px-3 py-1.5 rounded-full bg-white text-gray-900 text-xs font-bold shadow-md">Mở trên Figma ↗</span>
+            </div>
+          </a>
+          <!-- Real User Figma Link Button -->
+          <a href="https://www.figma.com/design/xw67ceKiKR8E3cESfVjSt9/Vinapet-kh%C3%A1ch?node-id=0-1&p=f&t=IWLMXmWGAbtK20j4-0" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="group relative mt-4 flex items-center justify-center gap-1.5 w-full py-2.5 border border-gray-300 hover:border-gray-900 text-gray-700 hover:text-gray-900 text-xs font-bold rounded-xl transition-all duration-300 hover:shadow-sm">
+            <span id="out_input_cta">Mở file Figma thiết kế Vinapet</span>
+            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+          </a>
+        </div>
+
+        <!-- Center AI Badge -->
+        <div class="flex items-center justify-center self-center my-4 md:my-0">
+          <div class="bg-gradient-to-r from-purple-400 to-orange-400 p-[2px] rounded-full shadow-lg animate-pulse-slow">
+            <div class="bg-white/95 backdrop-blur-md rounded-full px-5 py-2.5 flex items-center gap-2">
+              <span class="text-base">✨</span>
+              <span id="out_ai_badge" class="text-xs font-extrabold text-gray-800 tracking-wide uppercase">AI-Agent Powered</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Output: Live Production App -->
+        <div class="w-full md:w-3/5 bg-white border-2 border-[#b97a57]/30 rounded-3xl p-6 shadow-xl flex flex-col">
+          <div class="mb-4 flex items-start justify-between gap-2">
+            <div>
+              <span id="out_output" class="text-[10px] font-black uppercase tracking-widest text-gray-400">Output</span>
+              <h3 id="out_output_title" class="text-base font-extrabold text-gray-900 mt-1 flex items-center gap-2">
+                Hệ sinh thái Vinapet Triển khai Thực tế
+                <span class="relative flex h-2.5 w-2.5 shrink-0">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                </span>
+              </h3>
+              <p id="out_output_sub" class="text-xs text-gray-400 mt-0.5">Website B2C Trực tiếp &amp; ERP Nội bộ Doanh nghiệp</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
+            <!-- Frontend Card (Updated with Vinapet real screenshot) -->
+            <div class="flex flex-col gap-3 bg-gray-50 rounded-2xl p-4 border border-gray-100">
+              <div>
+                <span id="out_fe_label" class="text-[10px] font-black uppercase tracking-wider text-gray-400">E-commerce Store</span>
+                <p id="out_fe_title" class="text-xs font-bold text-gray-800 mt-0.5">Vinapet.com.vn (B2C &amp; Dropship)</p>
+              </div>
+              <a href="https://vinapet.com.vn/" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 title="Truy cập Vinapet.com.vn" 
+                 class="block rounded-xl overflow-hidden border border-gray-200 flex-1 relative min-h-[140px] bg-white group cursor-pointer">
+                <img alt="Vinapet Official Website" src="images/vinapet_real.png" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" />
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span class="px-3 py-1.5 rounded-full bg-white text-gray-900 text-xs font-bold shadow-md">Xem Website ↗</span>
+                </div>
+              </a>
+              <a href="https://vinapet.com.vn/" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="group relative flex items-center justify-center gap-1.5 w-full py-2 bg-gray-900 hover:bg-black text-white text-xs font-bold rounded-lg transition-all duration-300 hover:shadow-md">
+                <span id="out_fe_cta">Truy cập Vinapet.com.vn</span>
+                <svg class="w-3 h-3 transition-transform duration-300 group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+              </a>
+            </div>
+
+            <!-- Admin ERP Card -->
+            <div class="flex flex-col gap-3 rounded-2xl p-4 border-2 bg-[#0f1f3d] border-[#1c4ba8]">
+              <div>
+                <span id="out_admin_label" class="text-[10px] font-black uppercase tracking-wider text-[#8eb8eb]">Internal ERP System</span>
+                <p id="out_admin_title" class="text-xs font-bold text-white mt-0.5">Phân hệ Quản trị Vận hành &amp; Chuỗi cung ứng</p>
+              </div>
+              <div class="rounded-xl border border-[#1c4ba8] flex-1 relative min-h-[140px] overflow-hidden bg-[#1a2e56] flex items-center justify-center text-center p-4">
+                <div class="flex flex-col items-center">
+                  <span class="text-3xl mb-1.5">🔐</span>
+                  <p class="text-xs font-bold text-white">Hệ thống ERP Bảo mật Nội bộ</p>
+                  <p class="text-[10px] text-blue-200 mt-1">OEM/ODM · Dropship POS · Kế toán · Tồn kho</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-center gap-1.5 w-full py-2 text-white text-xs font-bold rounded-lg bg-[#1c4ba8]/80 cursor-default">
+                <span id="out_admin_cta">Hệ thống Nội bộ Doanh nghiệp</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Living Portfolio Note Callout -->
+    <div class="mt-10 bg-blue-50 border border-blue-100 rounded-3xl px-6 py-5 flex items-start gap-4 max-w-3xl mx-auto shadow-sm">
+      <div class="w-9 h-9 rounded-xl bg-blue-100 text-[#1c4ba8] flex items-center justify-center shrink-0 mt-0.5">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg>
+      </div>
+      <div>
+        <h4 id="out_living_title" class="text-sm font-extrabold text-gray-900 mb-1">
+          [Living Portfolio] Từ Tài liệu Nghiệp vụ đến Giá trị Doanh nghiệp
+        </h4>
+        <p id="out_living_desc" class="text-xs text-gray-600 leading-relaxed">
+          Không dừng lại ở những bản vẽ giao diện hay tài liệu mô tả tĩnh, sự kết hợp giữa tư duy Product Owner, kỹ năng BA chặt chẽ và công cụ Vibe-Coding giúp hiện thực hóa thành các sản phẩm giải quyết trực tiếp bài toán chi phí sàn và vận hành chuỗi cung ứng.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section (Nguyen Thanh Cong with Real Avatar) -->
+  <section id="about" class="py-20 px-6 bg-white border-t border-gray-100">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center justify-between mb-12">
+        <h2 id="about_title" class="text-2xl font-black text-gray-900">Thông tin cá nhân (About Me)</h2>
+        <span id="about_tagline" class="text-xs font-bold tracking-widest uppercase text-[#1C4BA8]">PRODUCT OWNER &amp; AI BUILDER</span>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-12 items-start">
+        <!-- Profile Column with User's Real Avatar Photo -->
+        <div class="w-full md:w-1/3 flex flex-col items-center text-center flex-shrink-0">
+          <div class="relative w-52 h-52 sm:w-60 sm:h-60 rounded-full overflow-hidden shadow-2xl ring-4 ring-[#1c4ba8]/20 ring-offset-4 bg-gray-900 group">
+            <img alt="Nguyen Thanh Cong - Product Owner" 
+                 src="images/avatar_cong.png" 
+                 class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                 style="object-position: 50% 16%;" />
+          </div>
+          <div class="w-12 h-0.5 bg-gray-900 mt-6 mb-4"></div>
+          <h3 class="text-2xl md:text-3xl font-extrabold text-gray-900">Nguyen Thanh Cong</h3>
+          <p id="about_role_pm" class="mt-2 text-xs font-bold tracking-wider uppercase text-[#B97A57]">Product Owner / Business Analyst</p>
+          
+          <!-- Contact Info -->
+          <div class="mt-4 text-xs text-gray-600 space-y-1.5 flex flex-col items-center">
+            <span class="inline-flex items-center gap-1.5 font-medium">📍 TP. Hồ Chí Minh</span>
+            <a href="tel:0528050507" class="inline-flex items-center gap-1.5 text-blue-700 hover:underline">📞 0528050507</a>
+            <a href="mailto:congcan25122003@gmail.com" class="inline-flex items-center gap-1.5 text-blue-700 hover:underline">✉️ congcan25122003@gmail.com</a>
+            <a href="https://www.linkedin.com/in/zoeitba/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-blue-700 hover:underline font-semibold mt-1">🔗 LinkedIn Profile</a>
+          </div>
+        </div>
+
+        <!-- Bio & Tabs Column -->
+        <div class="w-full md:w-2/3">
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="border border-[#1C4BA8] text-[#1C4BA8] text-xs font-semibold px-3 py-1 rounded-full">Product Owner</span>
+            <span class="border border-[#1C4BA8] text-[#1C4BA8] text-xs font-semibold px-3 py-1 rounded-full">Business Analyst</span>
+            <span class="border border-[#1C4BA8] text-[#1C4BA8] text-xs font-semibold px-3 py-1 rounded-full">AI Agent &amp; Vibe Coding</span>
+          </div>
+
+          <p id="about_intro" class="text-gray-600 text-sm mb-6 font-medium">
+            Xin chào! Tôi là Nguyễn Thành Công — Product Owner với thế mạnh về phân tích quy trình nghiệp vụ ERP, E-commerce và tích hợp các giải pháp AI-Agent để tự động hóa vận hành.
+          </p>
+
+          <!-- Interactive Tab Buttons -->
+          <div class="inline-flex p-1 bg-gray-100 rounded-full mb-8 gap-1 border border-gray-200/60" role="tablist" aria-label="Profile Tabs">
+            <button id="tabBtnBio" 
+                    class="tab-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer bg-gray-900 text-white shadow-sm"
+                    role="tab" 
+                    aria-selected="true" 
+                    aria-controls="tabContentPanel">
+              <span id="about_tab_bio">Kinh nghiệm &amp; Học vấn</span>
+            </button>
+            <button id="tabBtnCore" 
+                    class="tab-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer text-gray-500 hover:text-gray-900 hover:bg-gray-200/60"
+                    role="tab" 
+                    aria-selected="false" 
+                    aria-controls="tabContentPanel">
+              <span id="about_tab_core">Kỹ năng chuyên môn</span>
+            </button>
+            <button id="tabBtnAchievements" 
+                    class="tab-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer text-gray-500 hover:text-gray-900 hover:bg-gray-200/60"
+                    role="tab" 
+                    aria-selected="false" 
+                    aria-controls="tabContentPanel">
+              <span id="about_tab_achievements">Thành tựu nổi bật</span>
+            </button>
+          </div>
+
+          <!-- Tab Content Panel -->
+          <div id="tabContentPanel" class="min-h-[220px]" role="tabpanel" tabindex="0">
+            <ul id="tabList" class="space-y-3">
+              <!-- Dynamically rendered list items -->
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-12 px-6 border-t border-gray-800 text-xs">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="font-bold text-white text-sm">Nguyen Thanh Cong — Portfolio</p>
+        <p class="mt-1 text-gray-400">Product Owner · Business Analyst · AI Agent Integration</p>
+      </div>
+      <p class="text-gray-500">© 2026 Nguyen Thanh Cong. Built with Vibe Coding Principles.</p>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTopBtn" 
+          class="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-white border border-gray-200 shadow-lg flex items-center justify-center text-gray-500 hover:text-gray-900 hover:border-gray-400 hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 opacity-0 pointer-events-none active:scale-95 cursor-pointer" 
+          aria-label="Back to top"
+          title="Lên đầu trang">
+    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"></path></svg>
+  </button>
+
+  <!-- Localized Data Dictionary (VI & EN) -->
+  <script>
+    const PORTFOLIO_DATA = {
+      texts: {
+        vi: {
+          nav_eco: "Hệ sinh thái",
+          nav_wf: "Quy trình",
+          nav_out: "Kết quả",
+          nav_about: "Về tôi",
+          hero_badge: "Product Owner & AI Builder",
+          hero_title: "Vibe Coding Portfolio of Nguyen Thanh Cong",
+          hero_subtitle: "Product Owner | Business Analyst | AI-Driven Builder",
+          hero_desc_1: "Từ phân tích bài toán nghiệp vụ (PRD, BRD, User Story) đến thiết kế luồng hệ thống (BPMN, ERD) và triển khai thực tế bằng AI Agent (Vibe-Coding).",
+          hero_desc_2: "Hiện thực hóa các giải pháp E-commerce & Hệ thống ERP quản trị chuỗi cung ứng Vinapet với hiệu suất tối ưu và chi phí tối thiểu.",
+          hero_cta_project: "Xem dự án",
+          hero_cta_about: "Về tôi (About Me)",
+          eco_title: "THE VINAPET & ERP ECOSYSTEM",
+          eco_subtitle: "Hệ sinh thái E-commerce Đa kênh & ERP Quản trị Doanh nghiệp",
+          eco_actor_customers: "Khách B2C & Đại lý Dropship",
+          eco_actor_operations: "Vận hành Kho & Kế toán",
+          eco_actor_admin: "Product Owner / Ban Giám đốc",
+          eco_frontend_badge: "B2C & DROPSHIP PORTAL",
+          eco_frontend_sub: "(Vinapet.com.vn & Mobile UI)",
+          eco_shop_flow: "Luồng Mua Sắm",
+          eco_checkout_flow: "Cổng Thanh Toán",
+          eco_ai_advisory: "Tư vấn AI Pet",
+          eco_dropship_hub: "Mạng lưới Dropship",
+          eco_sales_marketing: "CONVERSION & DIRECT SALES",
+          eco_sales_marketing_sub: "Chuyển đổi trực tiếp & Tối ưu phí sàn",
+          eco_backend_badge: "CORE ERP SYSTEM",
+          eco_backend_sub: "(Internal Operation)",
+          eco_oem_procure: "Quản lý OEM/OBM & Chuỗi cung ứng",
+          eco_inv_account: "Tồn kho, Công nợ, Kế toán & Thuế",
+          eco_auto_module: "Module Tự động hóa Back-office",
+          eco_efficient_op: "OPERATIONAL EXCELLENCE",
+          eco_efficient_op_sub: "Loại bỏ thao tác thủ công & Giảm chi phí",
+          eco_unified_db: "DBMS & Data Pipeline",
+          eco_unified_db_sub: "MS SQL Scripting · Power BI Analytics · Shopee/TikTok API Sync",
+          eco_tech_tools: "Công cụ & Năng lực Cốt lõi",
+          eco_ai_title: "AI AGENT & VIBE-CODING",
+          wf_title: 'MY "VIBE-CODING" WORKFLOW',
+          wf_subtitle: "Từ Tài liệu Nghiệp vụ & Bản vẽ Figma đến Sản phẩm Trực tiếp Hoạt động",
+          wf_context_1: "Quy trình dựa trên các sản phẩm thực tế: Tài liệu phân tích nghiệp vụ, Bản vẽ Figma luồng mua sắm & thanh toán Vinapet, và Mô hình dữ liệu ERD.",
+          wf_context_2: "Bước 1 và 2 tạo lập nền tảng UI/UX và logic nghiệp vụ vững chắc; Bước 3 là nơi AI-Agentic được ứng dụng để tăng tốc chuyển đổi thành mã nguồn hoàn chỉnh.",
+          wf_step1_role: "As UI Designer",
+          wf_step1_tag: "Figma Prototype",
+          wf_step1_title: "Step 1 - Thiết kế Luồng Trải nghiệm",
+          wf_step1_subtitle: "(UI/UX Wireframing & Prototyping)",
+          wf_step1_desc: "Thiết kế trực tiếp trên Figma toàn bộ hành trình khách hàng (User Journey): Trang chủ, Danh mục, Chi tiết sản phẩm, Giỏ hàng, Phương thức vận chuyển và Cổng thanh toán — tối ưu tỷ lệ chuyển đổi đơn hàng và trải nghiệm mua sắm mượt mà.",
+          wf_step2_role: "As BA",
+          wf_step2_tag: "System & Data",
+          wf_step2_title: "Step 2 - Phân tích Nghiệp vụ & Mô hình hóa Dữ liệu",
+          wf_step2_subtitle: "(System Design, BPMN & ERD)",
+          wf_step2_desc: "Xây dựng tài liệu đặc tả PRD/BRD, thiết kế sơ đồ quy trình nghiệp vụ (BPMN, Flowchart) và mô hình dữ liệu thực thể (ERD) trên MS SQL cho các phân hệ ERP: Bán hàng, Tồn kho, Kế toán và Quản lý đại lý Dropshipping.",
+          wf_step3_role: "As AX-BA",
+          wf_step3_tag: "AI-Agentic ✨",
+          wf_step3_title: "Step 3 - Triển khai bằng AI-Agentic",
+          wf_step3_subtitle: "(Prompt-Driven Implementation)",
+          wf_step3_desc: "Ứng dụng kỹ thuật Prompt Engineering nâng cao cùng các AI Agent (Claude Code, Antigravity, Figma MAKE, Vercel) để biến bản vẽ và logic nghiệp vụ thành giao diện mã nguồn và tự động hóa quy trình vận hành.",
+          out_title: "OUTCOMES & IMPACT",
+          out_subtitle: "Sản phẩm Thực tế: Từ Thiết kế Figma đến Hệ thống Hoạt động",
+          out_input: "Đầu vào (Input)",
+          out_input_title: "Bản vẽ Figma & Đặc tả Nghiệp vụ",
+          out_input_sub: "Figma UI/UX, PRD, BPMN, ERD Data Model",
+          out_input_cta: "Mở file Figma thiết kế Vinapet",
+          out_ai_badge: "AI-Agent Powered",
+          out_output: "Đầu ra (Output)",
+          out_output_title: "Hệ sinh thái Vinapet Triển khai Thực tế",
+          out_output_sub: "Website B2C Trực tiếp & ERP Nội bộ Doanh nghiệp",
+          out_fe_label: "E-commerce Store",
+          out_fe_title: "Vinapet.com.vn (B2C & Dropship)",
+          out_fe_cta: "Truy cập Vinapet.com.vn",
+          out_admin_label: "Internal ERP System",
+          out_admin_title: "Phân hệ Quản trị Vận hành & Chuỗi cung ứng",
+          out_admin_cta: "Hệ thống Nội bộ Doanh nghiệp",
+          out_living_title: "[Living Portfolio] Từ Tài liệu Nghiệp vụ đến Giá trị Doanh nghiệp",
+          out_living_desc: "Không dừng lại ở những bản vẽ giao diện hay tài liệu mô tả tĩnh, sự kết hợp giữa tư duy Product Owner, kỹ năng BA chặt chẽ và công cụ Vibe-Coding giúp hiện thực hóa thành các sản phẩm giải quyết trực tiếp bài toán chi phí sàn và vận hành chuỗi cung ứng.",
+          about_title: "Thông tin cá nhân (About Me)",
+          about_tagline: "PRODUCT OWNER & AI BUILDER",
+          about_intro: "Xin chào! Tôi là Nguyễn Thành Công — Product Owner với thế mạnh về phân tích quy trình nghiệp vụ ERP, E-commerce và tích hợp các giải pháp AI-Agent để tự động hóa vận hành.",
+          about_role_pm: "Product Owner / Business Analyst",
+          about_tab_bio: "Kinh nghiệm & Học vấn",
+          about_tab_core: "Kỹ năng chuyên môn",
+          about_tab_achievements: "Thành tựu nổi bật"
+        },
+        en: {
+          nav_eco: "Ecosystem",
+          nav_wf: "Workflow",
+          nav_out: "Outcomes",
+          nav_about: "About Me",
+          hero_badge: "Product Owner & AI Builder",
+          hero_title: "Vibe Coding Portfolio of Nguyen Thanh Cong",
+          hero_subtitle: "Product Owner | Business Analyst | AI-Driven Builder",
+          hero_desc_1: "From business requirement analysis (PRD, BRD, User Story) to system workflow design (BPMN, ERD) and practical deployment via AI Agents (Vibe-Coding).",
+          hero_desc_2: "Delivering real-world E-commerce & Supply Chain ERP solutions for Vinapet with peak efficiency and minimal cost.",
+          hero_cta_project: "View Projects",
+          hero_cta_about: "About Me",
+          eco_title: "THE VINAPET & ERP ECOSYSTEM",
+          eco_subtitle: "Omnichannel E-commerce & Enterprise Resource Planning",
+          eco_actor_customers: "B2C Customers & Dropship Agencies",
+          eco_actor_operations: "Warehouse & Accounting Ops",
+          eco_actor_admin: "Product Owner / Executive Board",
+          eco_frontend_badge: "B2C & DROPSHIP PORTAL",
+          eco_frontend_sub: "(Vinapet.com.vn & Mobile UI)",
+          eco_shop_flow: "Shopping Journey",
+          eco_checkout_flow: "Checkout Gateway",
+          eco_ai_advisory: "AI Pet Advisory",
+          eco_dropship_hub: "Dropship Network",
+          eco_sales_marketing: "CONVERSION & DIRECT SALES",
+          eco_sales_marketing_sub: "Direct conversion & commission fee elimination",
+          eco_backend_badge: "CORE ERP SYSTEM",
+          eco_backend_sub: "(Internal Operation)",
+          eco_oem_procure: "OEM/OBM Procurement & Supply Chain",
+          eco_inv_account: "Inventory, Debt, Accounting & Tax",
+          eco_auto_module: "Back-office Automation Modules",
+          eco_efficient_op: "OPERATIONAL EXCELLENCE",
+          eco_efficient_op_sub: "Manual task elimination & cost reduction",
+          eco_unified_db: "DBMS & Data Pipeline",
+          eco_unified_db_sub: "MS SQL Scripting · Power BI Analytics · Shopee/TikTok API Sync",
+          eco_tech_tools: "Tools & Core Competencies",
+          eco_ai_title: "AI AGENT & VIBE-CODING",
+          wf_title: 'MY "VIBE-CODING" WORKFLOW',
+          wf_subtitle: "From Business Specs & Figma Wireframes to Living Production Products",
+          wf_context_1: "This workflow builds upon tangible deliverables: Business Requirement Documents, Figma shopping & checkout prototypes, and database ERD models.",
+          wf_context_2: "While Steps 1 and 2 lay the rock-solid UI/UX and business architecture foundation, Step 3 leverages AI-Agentic workflows to accelerate production-ready delivery.",
+          wf_step1_role: "As UI Designer",
+          wf_step1_tag: "Figma Prototype",
+          wf_step1_title: "Step 1 - Visual Journey Design",
+          wf_step1_subtitle: "(UI/UX Wireframing & Prototyping)",
+          wf_step1_desc: "Directly designed the complete end-to-end user journey in Figma: Homepage, Category, Product Detail, Cart, Shipping selection, and Checkout — maximizing order conversion rate and seamless customer satisfaction.",
+          wf_step2_role: "As BA",
+          wf_step2_tag: "System & Data",
+          wf_step2_title: "Step 2 - Business Analysis & Data Modeling",
+          wf_step2_subtitle: "(System Design, BPMN & ERD)",
+          wf_step2_desc: "Authored PRD/BRD documentation, designed business process diagrams (BPMN, Flowcharts), and built MS SQL Entity Relationship Diagrams (ERD) for core ERP modules: Sales, Warehouse, Accounting, and Agency Dropshipping.",
+          wf_step3_role: "As AX-BA",
+          wf_step3_tag: "AI-Agentic ✨",
+          wf_step3_title: "Step 3 - AI-Agentic Implementation",
+          wf_step3_subtitle: "(Prompt-Driven Implementation)",
+          wf_step3_desc: "Leveraged advanced Prompt Engineering and AI Agents (Claude Code, Antigravity, Figma MAKE, Vercel) to transform design prototypes and business rules directly into live functional code and automated operational workflows.",
+          out_title: "OUTCOMES & IMPACT",
+          out_subtitle: "Realized Products: From Figma Specs to Live Functional Ecosystem",
+          out_input: "Input",
+          out_input_title: "Figma Designs & Business Specs",
+          out_input_sub: "Figma UI/UX, PRD, BPMN, ERD Data Model",
+          out_input_cta: "Open Vinapet Figma Design File",
+          out_ai_badge: "AI-Agent Powered",
+          out_output: "Output",
+          out_output_title: "Production Vinapet Ecosystem",
+          out_output_sub: "Live Direct B2C Web Platform & Internal Enterprise ERP",
+          out_fe_label: "E-commerce Store",
+          out_fe_title: "Vinapet.com.vn (B2C & Dropship)",
+          out_fe_cta: "Visit Vinapet.com.vn",
+          out_admin_label: "Internal ERP System",
+          out_admin_title: "Supply Chain & Operations ERP Module",
+          out_admin_cta: "Enterprise Internal System",
+          out_living_title: "[Living Portfolio] From Business Specs to Tangible Enterprise Value",
+          out_living_desc: "Moving beyond static mockups or theoretical documentation, the fusion of Product Owner leadership, rigorous BA acumen, and Vibe-Coding tools produces live applications that directly cut commission fees and streamline supply chain costs.",
+          about_title: "About Me",
+          about_tagline: "PRODUCT OWNER & AI BUILDER",
+          about_intro: "Hello! I am Nguyen Thanh Cong — Product Owner with deep expertise in ERP business workflows, omnichannel E-commerce, and integrating AI-Agent frameworks for operational automation.",
+          about_role_pm: "Product Owner / Business Analyst",
+          about_tab_bio: "Experience & Education",
+          about_tab_core: "Core Competencies",
+          about_tab_achievements: "Key Achievements"
+        }
+      },
+      tabs: {
+        vi: {
+          Bio: [
+            { bold: "Product Owner", rest: " tại QOV COMPANY LIMITED (12/2025 - Hiện tại): Quản lý Product Backlog, thiết kế luồng quy trình ERP cốt lõi (Kế toán, Bán hàng, Kho, E-commerce, Marketing) và phân hệ Dropshipping tối ưu chi phí chuỗi cung ứng cho nhà máy Vinapet." },
+            { bold: "Data Analyst", rest: " tại QOV COMPANY LIMITED (03/2024 - 12/2025): Tích hợp Open API Shopee & TikTok, tối ưu hóa ROAS livestream giúp giảm CPA, tăng 10% lợi nhuận ròng/phiên và giành thêm 15% thị phần ngành hàng thú cưng." },
+            { bold: "Product Owner", rest: " tại TADA LABS COMPANY LIMITED (03/2023 - 01/2024): Triển khai giải pháp AI Agent tự động phân bổ tài nguyên, tối ưu UI/UX luồng B2C chuyển đổi người dùng từ sàn về web trực tiếp (tiết kiệm 10-15% chi phí sàn)." },
+            { bold: "Học vấn & Bằng cấp", rest: ": Đại học Văn Hiến — MIS (Hệ thống Thông tin Quản lý), GPA 3.17 (2023 - 2027)." },
+            { bold: "Chứng chỉ quốc tế", rest: ": Google Project Management Certificate (2025) – Cấp bởi Google via Coursera." },
+            { bold: "Giải thưởng", rest: ": Top 3 Finalist Vinamilk Business Analyst Challenge 2025; Á quân (2nd Place Runner-up) Heading for the Future 2024 (Product Management track)." }
+          ],
+          Core: [
+            { bold: "Quản trị Sản phẩm (Product Management - PO):", rest: " Market Research & AI Trend Analysis, Product Discovery, Product Delivery & Vision, Backlog Prioritization, Thực hành Agile/Scrum (Daily Standup, Sprint Planning, Grooming, Retrospective)." },
+            { bold: "Kỹ thuật Phân tích Nghiệp vụ (BA Techniques):", rest: " Requirement Elicitation, Analysis & Modelling, SQL Scripting, Wireframing & Prototyping (Figma, Draw.io), AI Prompt (generate Prototype, Document), Data Analyst & Reporting." },
+            { bold: "Kiến thức Lĩnh vực (Domain Knowledge):", rest: " ERP Doanh nghiệp, Thương mại điện tử (E-commerce), Marketing & Tối ưu ROAS, Giải pháp AI Agent." },
+            { bold: "Quy trình AI-Agent & Vibe-Coding:", rest: " Triển khai AI Agent (Vercel, Claude Code, Antigravity, Figma MAKE), tự động hóa phân bổ tài nguyên và sinh mã nguồn/tài liệu từ prompt." },
+            { bold: "Công cụ & Công nghệ:", rest: " MS SQL Server, Power BI, Figma, Draw.io, Tài liệu đặc tả (SRS, BRD, FRD, Confluence), Sơ đồ hệ thống (BPMN, Activity Diagram, Flowchart, Sequence), API Specification, MOS." }
+          ],
+          Achievements: [
+            { rest: "Dẫn dắt phát triển phân hệ Dropshipping trên toàn mạng lưới đại lý — thay thế hệ thống POS cũ và thiết kế quy trình nghiệp vụ cho nhà máy Vinapet (mô hình OEM/ODM) nhằm tối ưu hóa chi phí chuỗi cung ứng." },
+            { rest: "Tối ưu hóa UI/UX B2C và quy trình chăm sóc khách hàng, dịch chuyển thành công người dùng từ Shopee & TikTok về website riêng, loại bỏ 10-15% phí hoa hồng sàn và tăng tỉ lệ chuyển đổi đơn hàng." },
+            { rest: "Tích hợp Open APIs Shopee và TikTok để thu thập và trực quan hóa dữ liệu đa chiều qua Dashboard, hỗ trợ ban lãnh đạo ra quyết định chiến lược." },
+            { rest: "Phân tích cạnh tranh trên các sàn thương mại điện tử (cấu trúc giá, tốc độ bán, đánh giá), đề xuất chiến lược giá linh hoạt giúp chiếm lĩnh thêm 15% thị phần ngành hàng thú cưng." },
+            { rest: "Đạt Top 3 Chung kết Cuộc thi Vinamilk Business Analyst Challenge 2025 và giải Á quân Heading for the Future 2024 (mảng Product Management)." }
+          ]
+        },
+        en: {
+          Bio: [
+            { bold: "Product Owner", rest: " at QOV COMPANY LIMITED (Dec 2025 - Present): Owned Product Backlog, collaborated with outsourced teams to deploy core ERP modules (Accounting, Sales, Warehouse, E-commerce, Marketing), and engineered Dropshipping modules for Vinapet's OEM/ODM factory." },
+            { bold: "Data Analyst", rest: " at QOV COMPANY LIMITED (March 2024 - Dec 2025): Integrated Shopee & TikTok Open APIs, optimized livestream ROAS to reduce CPA and increase net profit by 10% per session, capturing 15% market share in pet industry." },
+            { bold: "Product Owner", rest: " at TADA LABS COMPANY LIMITED (March 2023 - Jan 2024): Deployed AI Agent solutions for automated resource allocation, optimized B2C UI/UX to migrate users from platforms to direct web, cutting 10-15% commission fees." },
+            { bold: "Education", rest: ": Van Hien University — MIS (Management Information System), GPA 3.17 (2023 - 2027)." },
+            { bold: "Certification", rest: ": Google Project Management Certificate (2025) – Issued by Google via Coursera." },
+            { bold: "Honors & Awards", rest: ": Top 3 Finalist Vinamilk Business Analyst Challenge 2025; 2nd Place (Runner-up) Heading for the Future 2024 (Product Management track)." }
+          ],
+          Core: [
+            { bold: "Product Management (PO):", rest: " Market Research & AI Trend Analysis, Product Discovery, Product Delivery & Vision, Backlog Prioritization, Agile/Scrum Practice (Daily Standup, Sprint Planning, Grooming, Retrospective)." },
+            { bold: "Business Analysis Techniques:", rest: " Requirement Elicitation, Analysis and Modelling, SQL Scripting, Wireframing & Prototyping (Figma, Draw.io), AI Prompt (generate Prototype, Document), Data Analyst & Reporting." },
+            { bold: "Domain Knowledge:", rest: " ERP, E-commerce, Marketing, AI Agent workflows." },
+            { bold: "AI-Agentic & Vibe-Coding Workflow:", rest: " Deploying AI Agent solutions (Vercel, Figma MAKE, Claude code, Antigravity) to translate BA/UX deliverables directly into live products and automated operations." },
+            { bold: "Tools & Technologies:", rest: " DBMS (MS SQL), Power BI, Figma, Draw.io, Documenting (SRS, BRD, FRD, Confluence), Diagramming (BPMN, Activity Diagram, Flowchart, Sequence), API specification, MOS." }
+          ],
+          Achievements: [
+            { rest: "Led the development of a Dropshipping module across the agency network — replacing legacy POS systems — and engineered workflows for the Vinapet factory's OEM/ODM business models to optimize supply chain costs." },
+            { rest: "Optimized B2C UI/UX and customer workflows, successfully migrating users from Shopee and TikTok to direct website, eliminating 10-15% platform fees and boosting conversion rates." },
+            { rest: "Integrated Shopee and TikTok Open APIs to collect and visualize multi-dimensional data via Dashboards, delivering a holistic business overview that guided executive decisions." },
+            { rest: "Conducted competitive intelligence across E-commerce platforms, enabling a dynamic pricing strategy that captured an additional 15% market share in the pet industry." },
+            { rest: "Achieved Top 3 Finalist at Vinamilk Business Analyst Challenge 2025 and 2nd Place (Runner-up) in Heading for the Future 2024 (Product Management track)." }
+          ]
+        }
+      }
+    };
+
+    // State Management (Default language is VI)
+    let currentLocale = 'vi';
+    let currentTab = 'Bio';
+
+    // Elements
+    const langToggleBtn = document.getElementById('langToggleBtn');
+    const langLabel = document.getElementById('langLabel');
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    const tabList = document.getElementById('tabList');
+
+    const tabButtons = {
+      Bio: document.getElementById('tabBtnBio'),
+      Core: document.getElementById('tabBtnCore'),
+      Achievements: document.getElementById('tabBtnAchievements')
+    };
+
+    // Initialize locale from URL query param or localStorage
+    function initLocale() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLang = urlParams.get('lang');
+      if (urlLang === 'vi' || urlLang === 'en') {
+        currentLocale = urlLang;
+      } else {
+        const stored = localStorage.getItem('vibe_portfolio_lang');
+        if (stored === 'vi' || stored === 'en') {
+          currentLocale = stored;
+        } else {
+          currentLocale = 'vi';
+        }
+      }
+      applyTranslations();
+      renderTabContent();
+    }
+
+    // Apply text translations to DOM
+    function applyTranslations() {
+      const dict = PORTFOLIO_DATA.texts[currentLocale] || PORTFOLIO_DATA.texts.vi;
+      
+      for (const [key, value] of Object.entries(dict)) {
+        const el = document.getElementById(key);
+        if (el) {
+          el.innerText = value;
+        }
+      }
+
+      langLabel.innerText = currentLocale === 'vi' ? 'EN' : 'VI';
+      document.documentElement.lang = currentLocale;
+    }
+
+    // Render Tab Content
+    function renderTabContent() {
+      const items = PORTFOLIO_DATA.tabs[currentLocale][currentTab] || [];
+      tabList.innerHTML = '';
+
+      items.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'flex items-start gap-3 transition-opacity duration-300';
+        
+        const bullet = document.createElement('span');
+        bullet.className = 'mt-2 w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0';
+        
+        const textSpan = document.createElement('span');
+        textSpan.className = 'text-gray-700 text-xs sm:text-sm leading-relaxed';
+
+        if (item.bold) {
+          const strong = document.createElement('strong');
+          strong.className = 'text-gray-900 font-semibold';
+          strong.innerText = item.bold;
+          textSpan.appendChild(strong);
+        }
+        
+        if (item.rest) {
+          textSpan.appendChild(document.createTextNode(item.rest));
+        }
+
+        li.appendChild(bullet);
+        li.appendChild(textSpan);
+        tabList.appendChild(li);
+      });
+
+      // Update tab active styles
+      Object.entries(tabButtons).forEach(([key, btn]) => {
+        const isSelected = key === currentTab;
+        btn.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+        if (isSelected) {
+          btn.className = 'tab-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer bg-gray-900 text-white shadow-sm';
+        } else {
+          btn.className = 'tab-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer text-gray-500 hover:text-gray-900 hover:bg-gray-200/60';
+        }
+      });
+    }
+
+    // Switch Language (Toggle between VI and EN)
+    function toggleLanguage() {
+      currentLocale = currentLocale === 'vi' ? 'en' : 'vi';
+      localStorage.setItem('vibe_portfolio_lang', currentLocale);
+      
+      const newUrl = new URL(window.location.href);
+      newUrl.searchParams.set('lang', currentLocale);
+      window.history.replaceState(null, '', newUrl.toString());
+
+      applyTranslations();
+      renderTabContent();
+    }
+
+    // Switch Tab
+    function switchTab(tabKey) {
+      if (tabButtons[tabKey]) {
+        currentTab = tabKey;
+        renderTabContent();
+      }
+    }
+
+    // Attach Event Listeners
+    langToggleBtn.addEventListener('click', toggleLanguage);
+    
+    tabButtons.Bio.addEventListener('click', () => switchTab('Bio'));
+    tabButtons.Core.addEventListener('click', () => switchTab('Core'));
+    tabButtons.Achievements.addEventListener('click', () => switchTab('Achievements'));
+
+    // Keyboard support for tabs (ArrowLeft, ArrowRight)
+    const tabKeys = ['Bio', 'Core', 'Achievements'];
+    document.querySelector('[role="tablist"]').addEventListener('keydown', (e) => {
+      let currentIndex = tabKeys.indexOf(currentTab);
+      if (e.key === 'ArrowRight') {
+        const nextIndex = (currentIndex + 1) % tabKeys.length;
+        switchTab(tabKeys[nextIndex]);
+        tabButtons[tabKeys[nextIndex]].focus();
+      } else if (e.key === 'ArrowLeft') {
+        const prevIndex = (currentIndex - 1 + tabKeys.length) % tabKeys.length;
+        switchTab(tabKeys[prevIndex]);
+        tabButtons[tabKeys[prevIndex]].focus();
+      }
+    });
+
+    // Back to top scroll listener
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+        backToTopBtn.classList.add('opacity-100');
+      } else {
+        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+        backToTopBtn.classList.remove('opacity-100');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', initLocale);
+  </script>
+</body>
+</html>
